@@ -28,11 +28,25 @@ cursor = conexao.cursor()
 #inserindo dados
 #OBS: os ? são máscaras, para não dá erro de segurança
 #cursor.executemany para pegar vários dados
-cursor.executemany(
-    '''
-    INSERT INTO agenda(nome, telefone) VALUES(?,?)
-    ''',(dados)
-)
+#cursor.executemany(
+#    '''
+#    INSERT INTO agenda(nome, telefone) VALUES(?,?)
+#    ''',(dados)
+#)
+
+#fzd uma busca pelo fetchone - Retorna apenas um resgistro
+cursor.execute("SELECT * FROM agenda")
+#resultado = cursor.fetchone()
+
+#imprimindo busca
+#print(f"Nome: {resultado[0]}\nTelefone: {resultado[1]}")
+
+#Faz busca por fatchall - todos dados
+resultado = cursor.fetchall()
+#loop na lista
+for registro in resultado:
+    print(f"Nome: {registro[0]}\nTelefone: {registro[1]}")
+
 
 conexao.commit() #modificando o BD
 cursor.close() #Fechando o cursor 
