@@ -2,6 +2,15 @@
 import sqlite3# informa qual BD está utilizando
 conexao = sqlite3.connect("agenda.db") #a variável que cria coneção e o nome do BD
 
+#Tupla de listas para facilitar a inserção de dados
+#OBS: muda para cursor.executemany
+dados = [
+    ("Charllys", "111"),
+    ("Amor", "112"),
+    ("Zion", "114"),
+    ("Zack", "411")
+]
+
 #criando cursor - objeto que vai se comunicar com o BD
 #cursor - nome do objeto, conexao - metódo, da classe cursor
 cursor = conexao.cursor()
@@ -18,10 +27,11 @@ cursor = conexao.cursor()
 
 #inserindo dados
 #OBS: os ? são máscaras, para não dá erro de segurança
-cursor.execute(
+#cursor.executemany para pegar vários dados
+cursor.executemany(
     '''
     INSERT INTO agenda(nome, telefone) VALUES(?,?)
-    ''',("Evaldo", "123")
+    ''',(dados)
 )
 
 conexao.commit() #modificando o BD
