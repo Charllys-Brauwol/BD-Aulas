@@ -1,0 +1,37 @@
+CREATE TABLE - comando para criar tabelas
+    CREATE TABLE IF NOT EXISTS linguagens(id INTEGER PRIMARY KEY, nome TEXT, criador TEXT, ano INTEGER)
+        CREATE TABLE - criar tabela
+        IF NOT EXISTS - caso não exista
+        Criando a tabela linguagens
+        id INTEGER PRIMARY KEY - indica que id é a chave primária da tabela
+        nome TEXT - coluna do tipo char
+        criador TEXT - coluna do tipo char
+        ano INTEGER - coluna do tipo inteiro
+
+INSERT INTO - comando para iserir dados na tabela
+    INSERT INTO linguagens VALUES('PHP', 'Rasmus Lerdof', 1994);
+        OBS: as PRIMARY KEY são auto-incrementadas, não é preciso inserir.
+        INSERT INTO - inserir dados
+        linguagens - tabela correspondente
+        VALUES - valores, dados
+        () - ordem e dados a serem iseridos
+
+SELECT - Comando para fazer pesquisas no BD
+    SELECT FROM * linguagens;
+        Retorna a talela inteira
+    SELECT nome, criador, ano FROM linguagens;
+        Retorna da tabela linguagens os dados selecionados: nome, criador e ano.
+    SELECT nome, criador, ano FROM linguagens ORDER BY ano DESC;
+        ORDER BY - ordenado por ano
+        DESC - na forma descendente
+    SELECT nome, criador, ano FROM linguagens ORDER BY ano DESC LIMIT 1;
+        Seleciona somente o primeiro item dessa organização
+    
+WHERE - Pesquisas mais avançadas
+    SELECT FROM linguagens WHERE nome = 'Python';
+        Mostra a linha da tabela nome com a palavra Python
+    
+GROUP BY - Agrupar determinada coluna
+    SELECT criador FROM linguagens GROUP BY criador;
+        Retorna só a coluna criador
+    
