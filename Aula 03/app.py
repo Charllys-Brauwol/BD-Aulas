@@ -11,7 +11,7 @@ MENU_PROMPT = """
 
 def menu():
     conexao = data.conect()
-    data.create(conexao)
+    #1data.create(conexao)
 
     while(user_input := input(MENU_PROMPT)) != "5":
         if user_input == "1":

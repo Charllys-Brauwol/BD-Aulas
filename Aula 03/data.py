@@ -10,14 +10,6 @@ SELECT * from linguagens
 order by ano asc
 limit 1
 """
-#Metodo antigo de criar o banco
-#conexao = sqlite3.connect("linguagens.db")
-
-#Metódo antigo de criar a tabela
-#with conexao:
-#    conexao.execute(
-#        "CREATE TABLE linguagens(id integer primary key, nome TEXT, criador TEXT, ano INTEGER)"
-#    )
 
 #Função que cria o BD
 def conect():
